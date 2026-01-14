@@ -18,7 +18,7 @@ interface ButtonProps {
 
 const variants = {
   primary: [
-    'bg-gradient-to-r from-violet-600 via-fuchsia-500 to-coral',
+    'bg-gradient-to-r from-blue-600 via-blue-500 to-green-500',
     'text-white font-semibold',
     'shadow-button hover:shadow-button-hover',
     'hover:scale-105 active:scale-95',
@@ -30,33 +30,33 @@ const variants = {
     'before:transition-transform before:duration-700',
   ].join(' '),
   secondary: [
-    'bg-white/70 backdrop-blur-sm',
-    'text-violet-700 font-medium',
-    'border-2 border-violet-300 hover:border-violet-500',
-    'hover:bg-violet-50/80',
+    'bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm',
+    'text-blue-700 dark:text-blue-400 font-medium',
+    'border-2 border-blue-300 dark:border-blue-600 hover:border-blue-500 dark:hover:border-blue-400',
+    'hover:bg-blue-50/80 dark:hover:bg-slate-700/80',
     'hover:scale-105 active:scale-95',
   ].join(' '),
   ghost: [
     'bg-transparent',
-    'text-ink-secondary hover:text-violet-600',
-    'hover:bg-violet-50',
+    'text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400',
+    'hover:bg-blue-50 dark:hover:bg-slate-800',
     'hover:scale-105 active:scale-95',
   ].join(' '),
   neon: [
     'bg-transparent',
-    'text-violet-500 font-semibold',
-    'border-2 border-violet-500',
-    'hover:shadow-glow-md hover:text-white hover:bg-violet-500',
+    'text-blue-500 dark:text-blue-400 font-semibold',
+    'border-2 border-blue-500 dark:border-blue-400',
+    'hover:shadow-glow-md hover:text-white hover:bg-blue-500',
     'hover:scale-105 active:scale-95',
   ].join(' '),
   'gradient-outline': [
-    'relative bg-white/90',
-    'text-violet-600 font-semibold',
+    'relative bg-white/90 dark:bg-slate-900/90',
+    'text-blue-600 dark:text-blue-400 font-semibold',
     'hover:scale-105 active:scale-95',
     // Gradient border effect using pseudo-element
     'before:absolute before:inset-0 before:-z-10',
     'before:p-[2px] before:rounded-full',
-    'before:bg-gradient-to-r before:from-violet-600 before:via-fuchsia-500 before:to-coral',
+    'before:bg-gradient-to-r before:from-blue-600 before:via-blue-500 before:to-green-500',
     'before:-m-[2px]',
   ].join(' '),
 };
@@ -84,7 +84,7 @@ export function Button({
   const classes = cn(
     'inline-flex items-center justify-center whitespace-nowrap',
     'transition-all duration-300 ease-out rounded-full',
-    'focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2',
+    'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900',
     'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100',
     variants[variant],
     sizes[size],

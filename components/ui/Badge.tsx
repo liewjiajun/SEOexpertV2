@@ -9,25 +9,25 @@ interface BadgeProps {
 }
 
 const variants = {
-  default: 'bg-violet-100 text-violet-700',
+  default: 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400',
   gradient: [
-    'bg-gradient-to-r from-violet-600 via-fuchsia-500 to-coral',
+    'bg-gradient-to-r from-blue-600 via-blue-500 to-green-500',
     'text-white font-semibold',
     'shadow-sm',
   ].join(' '),
   outline: [
     'bg-transparent',
-    'border border-violet-400 text-violet-600',
+    'border border-blue-400 dark:border-blue-500 text-blue-600 dark:text-blue-400',
   ].join(' '),
   neon: [
     'bg-transparent',
-    'border border-violet-500 text-violet-400',
+    'border border-blue-500 text-blue-400',
     'shadow-glow-sm',
   ].join(' '),
   glass: [
-    'backdrop-blur-sm bg-white/60',
-    'border border-white/40',
-    'text-violet-700',
+    'backdrop-blur-sm bg-white/60 dark:bg-slate-800/60',
+    'border border-white/40 dark:border-white/10',
+    'text-blue-700 dark:text-blue-400',
   ].join(' '),
 };
 

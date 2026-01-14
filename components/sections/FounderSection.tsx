@@ -10,7 +10,7 @@ export function FounderSection() {
   return (
     <section className="section relative overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-violet-50/30 via-transparent to-fuchsia-50/30 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-blue-50/30 via-transparent to-green-50/30 dark:from-blue-900/10 dark:via-transparent dark:to-green-900/10 pointer-events-none" />
 
       {/* Floating blob */}
       <FloatingBlob
@@ -26,7 +26,7 @@ export function FounderSection() {
           <AnimatedSection animation="slide-right">
             <div className="relative">
               {/* Gradient border wrapper */}
-              <div className="relative h-[400px] md:h-[500px] rounded-card overflow-hidden p-[3px] bg-gradient-to-br from-violet-500 via-fuchsia-500 to-coral">
+              <div className="relative h-[400px] md:h-[500px] rounded-card overflow-hidden p-[3px] bg-gradient-to-br from-blue-500 via-blue-400 to-green-500">
                 <div className="relative h-full w-full rounded-[15px] overflow-hidden">
                   <Image
                     src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
@@ -38,8 +38,8 @@ export function FounderSection() {
               </div>
 
               {/* Decorative elements */}
-              <div className="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 animate-bounce-hover" />
-              <div className="absolute -bottom-2 -left-2 w-4 h-4 rounded-full bg-coral animate-float animation-delay-1000" />
+              <div className="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-gradient-to-br from-blue-500 to-green-500 animate-bounce-hover" />
+              <div className="absolute -bottom-2 -left-2 w-4 h-4 rounded-full bg-green-400 animate-float animation-delay-1000" />
             </div>
           </AnimatedSection>
 

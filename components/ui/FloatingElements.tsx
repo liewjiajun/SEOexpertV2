@@ -1,16 +1,19 @@
 import { cn } from '@/lib/utils';
 
 interface FloatingBlobProps {
-  color?: 'violet' | 'fuchsia' | 'coral';
+  color?: 'blue' | 'green' | 'violet' | 'fuchsia' | 'coral';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   className?: string;
   animationDelay?: string;
 }
 
 const colors = {
-  violet: 'bg-violet-400',
-  fuchsia: 'bg-fuchsia-400',
-  coral: 'bg-coral',
+  blue: 'bg-blue-400',
+  green: 'bg-green-400',
+  // Legacy support
+  violet: 'bg-blue-400',
+  fuchsia: 'bg-green-400',
+  coral: 'bg-green-400',
 };
 
 const sizes = {
@@ -21,7 +24,7 @@ const sizes = {
 };
 
 export function FloatingBlob({
-  color = 'violet',
+  color = 'blue',
   size = 'md',
   className,
   animationDelay = '0s',
@@ -51,7 +54,7 @@ export function FloatingDots({ className }: FloatingDotsProps) {
         <div
           key={i}
           className={cn(
-            'absolute w-2 h-2 rounded-full bg-violet-400/40',
+            'absolute w-2 h-2 rounded-full bg-blue-400/40',
             'animate-float'
           )}
           style={{
@@ -75,7 +78,7 @@ export function GradientOrb({ className }: GradientOrbProps) {
     <div
       className={cn(
         'absolute w-[600px] h-[600px] rounded-full',
-        'bg-gradient-radial from-violet-500/20 via-fuchsia-500/10 to-transparent',
+        'bg-gradient-radial from-blue-500/20 via-green-500/10 to-transparent',
         'blur-3xl pointer-events-none animate-pulse-subtle',
         className
       )}

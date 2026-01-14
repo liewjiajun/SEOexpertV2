@@ -11,7 +11,7 @@ export function CTAFooter() {
     <section className="section">
       <Container>
         <AnimatedSection>
-          <div className="relative overflow-hidden bg-gradient-to-br from-violet-600 via-fuchsia-500 to-coral rounded-card p-8 md:p-12 lg:p-16 text-center">
+          <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-500 to-green-500 rounded-card p-8 md:p-12 lg:p-16 text-center">
             {/* Animated background blobs */}
             <FloatingBlob
               color="violet"

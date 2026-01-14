@@ -1,10 +1,10 @@
-'use client';
+'use client'
 
-import Link from 'next/link';
-import { Container } from '@/components/ui/Container';
-import { Card } from '@/components/ui/Card';
-import { AnimatedSection } from '@/components/ui/AnimatedSection';
-import { SERVICES } from '@/lib/constants';
+import { motion } from 'framer-motion'
+import { Container } from '@/components/ui/Container'
+import { ServiceCardInteractive } from '@/components/ui/ServiceCardInteractive'
+import { AnimatedSection } from '@/components/ui/AnimatedSection'
+import { SERVICES } from '@/lib/constants'
 
 const iconMap: Record<string, React.ReactNode> = {
   search: (
@@ -32,50 +32,45 @@ const iconMap: Record<string, React.ReactNode> = {
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
     </svg>
   ),
-};
+}
 
 export function ServiceCards() {
   return (
-    <section className="section relative overflow-hidden">
-      {/* Subtle background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-violet-50/50 via-transparent to-fuchsia-50/50 pointer-events-none" />
+    <section className="section relative overflow-hidden bg-ink-900 py-24">
+      {/* Background gradient orbs */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-green-600/10 rounded-full blur-3xl pointer-events-none" />
 
       <Container className="relative z-10">
-        <AnimatedSection className="section-header">
-          <p className="eyebrow">Our Services</p>
-          <h2 className="text-balance mb-4">
+        <AnimatedSection className="section-header text-center mb-16">
+          <span className="eyebrow">Our Services</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-white mt-4 mb-4">
             Full-stack <span className="text-gradient">digital marketing</span>
           </h2>
-          <p className="text-ink-secondary">
+          <p className="text-white/60 max-w-2xl mx-auto">
             From strategy to execution, we handle every aspect of your digital presence.
           </p>
         </AnimatedSection>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {SERVICES.map((service, index) => (
-            <AnimatedSection key={service.id} delay={index * 100}>
-              <Link href={`/services/${service.slug}`} className="block h-full">
-                <Card variant="glass" hover className="h-full group">
-                  {/* Gradient icon container */}
-                  <div className="w-12 h-12 rounded-xl icon-gradient flex items-center justify-center mb-4 group-hover:shadow-glow-md transition-shadow duration-300">
-                    {iconMap[service.icon]}
-                  </div>
-                  <h3 className="text-xl font-medium mb-2 group-hover:text-gradient transition-all duration-300">
-                    {service.shortTitle}
-                  </h3>
-                  <p className="text-ink-secondary text-sm mb-4">{service.description}</p>
-                  <span className="text-violet-600 text-sm font-semibold inline-flex items-center">
-                    Learn more
-                    <svg className="w-4 h-4 ml-1 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </span>
-                </Card>
-              </Link>
-            </AnimatedSection>
+            <ServiceCardInteractive
+              key={service.id}
+              title={service.shortTitle}
+              description={service.description}
+              icon={iconMap[service.icon]}
+              href={`/services/${service.slug}`}
+              index={index}
+            />
           ))}
-        </div>
+        </motion.div>
       </Container>
     </section>
-  );
+  )
 }

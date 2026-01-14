@@ -1,38 +1,103 @@
-'use client';
+'use client'
 
-import { cn } from '@/lib/utils';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { motion, Variants } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+import { cn } from '@/lib/utils'
 
 interface AnimatedSectionProps {
-  children: React.ReactNode;
-  className?: string;
-  animation?: 'fade-up' | 'fade-in' | 'pop-in' | 'slide-left' | 'slide-right';
-  delay?: number;
-  threshold?: number;
+  children: React.ReactNode
+  className?: string
+  animation?: 'fade-up' | 'fade-in' | 'pop-in' | 'slide-left' | 'slide-right' | 'scale-in'
+  delay?: number
+  threshold?: number
+  once?: boolean
+  stagger?: boolean
 }
 
-const animations = {
+const animations: Record<string, Variants> = {
   'fade-up': {
-    hidden: 'opacity-0 translate-y-8',
-    visible: 'opacity-100 translate-y-0',
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        damping: 15,
+      },
+    },
   },
   'fade-in': {
-    hidden: 'opacity-0',
-    visible: 'opacity-100',
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: 'easeOut',
+      },
+    },
   },
   'pop-in': {
-    hidden: 'opacity-0 scale-90',
-    visible: 'opacity-100 scale-100',
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 300,
+        damping: 20,
+      },
+    },
   },
   'slide-left': {
-    hidden: 'opacity-0 translate-x-8',
-    visible: 'opacity-100 translate-x-0',
+    hidden: { opacity: 0, x: 50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        damping: 15,
+      },
+    },
   },
   'slide-right': {
-    hidden: 'opacity-0 -translate-x-8',
-    visible: 'opacity-100 translate-x-0',
+    hidden: { opacity: 0, x: -50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        damping: 15,
+      },
+    },
   },
-};
+  'scale-in': {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 200,
+        damping: 20,
+      },
+    },
+  },
+}
+
+// Container variant for stagger effect
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+    },
+  },
+}
 
 export function AnimatedSection({
   children,
@@ -40,20 +105,46 @@ export function AnimatedSection({
   animation = 'fade-up',
   delay = 0,
   threshold = 0.1,
+  once = true,
+  stagger = false,
 }: AnimatedSectionProps) {
-  const { ref, isVisible } = useScrollAnimation({ threshold });
+  const { ref, inView } = useInView({
+    threshold,
+    triggerOnce: once,
+  })
+
+  const variants = stagger ? containerVariants : animations[animation]
 
   return (
-    <div
+    <motion.div
       ref={ref}
-      className={cn(
-        'transition-all duration-700 ease-out',
-        isVisible ? animations[animation].visible : animations[animation].hidden,
-        className
-      )}
-      style={{ transitionDelay: `${delay}ms` }}
+      initial="hidden"
+      animate={inView ? 'visible' : 'hidden'}
+      variants={variants}
+      className={cn(className)}
+      style={{
+        transitionDelay: `${delay}ms`,
+      }}
+      custom={delay / 1000}
     >
       {children}
-    </div>
-  );
+    </motion.div>
+  )
+}
+
+// Export stagger item for use with stagger containers
+export function AnimatedItem({
+  children,
+  className,
+  animation = 'fade-up',
+}: {
+  children: React.ReactNode
+  className?: string
+  animation?: keyof typeof animations
+}) {
+  return (
+    <motion.div variants={animations[animation]} className={cn(className)}>
+      {children}
+    </motion.div>
+  )
 }

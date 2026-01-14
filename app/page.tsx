@@ -1,10 +1,11 @@
-import { Hero } from '@/components/sections/Hero';
-import { TrustStrip } from '@/components/sections/TrustStrip';
-import { ServiceCards } from '@/components/sections/ServiceCards';
-import { Differentiators } from '@/components/sections/Differentiators';
-import { ResultsPreview } from '@/components/sections/ResultsPreview';
-import { FounderSection } from '@/components/sections/FounderSection';
-import { CTAFooter } from '@/components/sections/CTAFooter';
+import { Hero } from '@/components/sections/Hero'
+import { TrustStrip } from '@/components/sections/TrustStrip'
+import { ServiceCards } from '@/components/sections/ServiceCards'
+import { Differentiators } from '@/components/sections/Differentiators'
+import { StatsWithConfetti } from '@/components/sections/StatsWithConfetti'
+import { TestimonialsSwipe } from '@/components/sections/TestimonialsSwipe'
+import { FounderSection } from '@/components/sections/FounderSection'
+import { CTAFooter } from '@/components/sections/CTAFooter'
 
 export default function HomePage() {
   return (
@@ -13,9 +14,10 @@ export default function HomePage() {
       <TrustStrip />
       <ServiceCards />
       <Differentiators />
-      <ResultsPreview />
+      <StatsWithConfetti />
+      <TestimonialsSwipe />
       <FounderSection />
       <CTAFooter />
     </>
-  );
+  )
 }

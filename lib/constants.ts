@@ -27,10 +27,6 @@ export const NAVIGATION = [
 
 export const CTA = {
   primary: {
-    text: 'Book a discovery call',
-    href: '/contact?type=discovery',
-  },
-  secondary: {
     text: 'Get a free audit',
     href: '/contact?type=audit',
   },

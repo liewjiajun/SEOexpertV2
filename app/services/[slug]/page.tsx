@@ -60,24 +60,19 @@ export default async function ServicePage({ params }: Props) {
               <span className="text-gradient">{service.title}</span>
             </h1>
             <p className="text-xl text-ink-secondary mb-8">{service.longDescription}</p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                href={CTA.primary.href}
-                size="lg"
-                glow
-                icon={
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                }
-                iconPosition="right"
-              >
-                {CTA.primary.text}
-              </Button>
-              <Button href={CTA.secondary.href} variant="secondary" size="lg">
-                {CTA.secondary.text}
-              </Button>
-            </div>
+            <Button
+              href={CTA.primary.href}
+              size="lg"
+              glow
+              icon={
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              }
+              iconPosition="right"
+            >
+              {CTA.primary.text}
+            </Button>
           </div>
         </Container>
       </section>

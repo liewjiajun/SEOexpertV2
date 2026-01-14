@@ -1,22 +1,25 @@
-import type { Metadata } from 'next';
-import { Inter, Fraunces } from 'next/font/google';
-import './globals.css';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
-import { WhatsAppWidget } from '@/components/widgets/WhatsAppWidget';
-import { SITE_CONFIG } from '@/lib/constants';
+import type { Metadata } from 'next'
+import { Inter, Fraunces } from 'next/font/google'
+import './globals.css'
+import { Header } from '@/components/layout/Header'
+import { Footer } from '@/components/layout/Footer'
+import { WhatsAppWidget } from '@/components/widgets/WhatsAppWidget'
+import { SmoothScrollProvider } from '@/app/providers/SmoothScrollProvider'
+import { NoiseOverlay } from '@/components/ui/NoiseOverlay'
+import { PageLoader } from '@/components/layout/PageLoader'
+import { SITE_CONFIG } from '@/lib/constants'
 
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
-});
+})
 
 const fraunces = Fraunces({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-fraunces',
-});
+})
 
 export const metadata: Metadata = {
   title: {
@@ -38,21 +41,25 @@ export const metadata: Metadata = {
     title: SITE_CONFIG.name,
     description: SITE_CONFIG.description,
   },
-};
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
       <body className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <WhatsAppWidget />
+        <SmoothScrollProvider>
+          <PageLoader />
+          <NoiseOverlay />
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <WhatsAppWidget />
+        </SmoothScrollProvider>
       </body>
     </html>
-  );
+  )
 }

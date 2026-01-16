@@ -32,9 +32,9 @@ export function CTAFooter() {
             <div className="absolute top-1/2 right-1/4 w-2 h-2 rounded-full bg-white/25 animate-float animation-delay-1000" />
 
             <div className="relative z-10">
-              <h2 className="text-white mb-4 text-balance">Ready to grow sustainably?</h2>
+              <h2 className="text-white mb-4 text-balance">Ready to Work with a Digital Marketing Agency That Delivers?</h2>
               <p className="text-white/80 max-w-xl mx-auto mb-8">
-                No high-pressure sales calls. Just a conversation about your goals and how we might help.
+                No high-pressure sales. Just a conversation about your goals and how our SEO, advertising, and digital marketing services can help your business grow.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button

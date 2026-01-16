@@ -1,6 +1,5 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Container } from '@/components/ui/Container'
 import { MagneticButton } from '@/components/ui/MagneticButton'
@@ -16,44 +15,32 @@ function HeroBackground(): JSX.Element {
   )
 }
 
-interface TypewriterTextProps {
-  words: string[]
+interface WavyTextProps {
+  text: string
+  className?: string
 }
 
-function TypewriterText({ words }: TypewriterTextProps): JSX.Element {
-  const [currentWordIndex, setCurrentWordIndex] = useState(0)
-  const [displayText, setDisplayText] = useState('')
-  const [isDeleting, setIsDeleting] = useState(false)
-
-  useEffect(() => {
-    const currentWord = words[currentWordIndex]
-    const typingSpeed = isDeleting ? 50 : 100
-    const pauseDuration = 2000
-
-    const timeout = setTimeout(() => {
-      if (!isDeleting) {
-        if (displayText.length < currentWord.length) {
-          setDisplayText(currentWord.slice(0, displayText.length + 1))
-        } else {
-          setTimeout(() => setIsDeleting(true), pauseDuration)
-        }
-      } else {
-        if (displayText.length > 0) {
-          setDisplayText(displayText.slice(0, -1))
-        } else {
-          setIsDeleting(false)
-          setCurrentWordIndex((prev) => (prev + 1) % words.length)
-        }
-      }
-    }, typingSpeed)
-
-    return () => clearTimeout(timeout)
-  }, [displayText, isDeleting, currentWordIndex, words])
-
+function WavyText({ text, className = '' }: WavyTextProps): JSX.Element {
   return (
-    <span className="text-gradient">
-      {displayText}
-      <span className="animate-pulse">|</span>
+    <span className={className}>
+      {text.split('').map((char, index) => (
+        <motion.span
+          key={index}
+          className="inline-block"
+          animate={{
+            y: [0, -8, 0],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            repeatType: 'loop',
+            delay: index * 0.05,
+            ease: 'easeInOut',
+          }}
+        >
+          {char === ' ' ? '\u00A0' : char}
+        </motion.span>
+      ))}
     </span>
   )
 }
@@ -76,8 +63,6 @@ function ScrollIndicator(): JSX.Element {
     </motion.div>
   )
 }
-
-const ROTATING_WORDS = ['Go Viral', 'Dominate', 'Scale', 'Thrive']
 
 export function HeroImmersive(): JSX.Element {
   const { scrollY } = useScroll()
@@ -110,24 +95,23 @@ export function HeroImmersive(): JSX.Element {
 
           {/* Main Headline */}
           <motion.h1
-            className="text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-display font-normal mb-6 text-white"
+            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-normal mb-6 text-white"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <span className="block text-white mb-2">We Make Brands</span>
-            <TypewriterText words={ROTATING_WORDS} />
+            <WavyText text="Best Digital Marketing" className="block text-white mb-2" />
+            <span className="text-gradient">Agency in Singapore</span>
           </motion.h1>
 
           {/* Subheadline */}
           <motion.p
-            className="mx-auto max-w-2xl text-lg md:text-xl text-white/60 mb-10"
+            className="mx-auto max-w-3xl text-lg md:text-xl text-white/60 mb-10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            SEO, Ads, Social Media—engineered for the algorithm age.
-            Results-driven marketing from a 100% remote team.
+            We help brands win in digital marketing with SEO, paid advertising, PPC, and social media marketing, designed for today&apos;s algorithm-driven landscape. Affordable digital marketing services focused on real results, delivered by a fully remote team.
           </motion.p>
 
           {/* CTA Button */}
@@ -137,8 +121,8 @@ export function HeroImmersive(): JSX.Element {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
           >
-            <MagneticButton href={CTA.primary.href} variant="neon" size="lg">
-              {CTA.primary.text}
+            <MagneticButton href="/contact" variant="neon" size="lg">
+              Get a free audit
             </MagneticButton>
           </motion.div>
 

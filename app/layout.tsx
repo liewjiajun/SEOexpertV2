@@ -28,6 +28,9 @@ export const metadata: Metadata = {
   },
   description: SITE_CONFIG.description,
   metadataBase: new URL(SITE_CONFIG.url),
+  icons: {
+    icon: '/SEOExpert/SEOExpert_symbol_black.svg',
+  },
   openGraph: {
     title: SITE_CONFIG.name,
     description: SITE_CONFIG.description,

@@ -15,15 +15,15 @@ export function Differentiators() {
         <AnimatedSection className="section-header">
           <p className="eyebrow">Why Choose Us</p>
           <h2 className="text-balance mb-4">
-            SEO without the <span className="text-gradient">agency fluff</span>
+            Why Choose SEOExpert as Your <span className="text-gradient">Digital Marketing Agency</span> in Singapore
           </h2>
           <p className="text-ink-secondary">
-            We built this agency to be different. Here&apos;s what that actually means.
+            SEOExpert is built as a modern, results-driven digital marketing agency focused on real outcomes. Here&apos;s what sets us apart.
           </p>
         </AnimatedSection>
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start">
-          {/* What We're Against */}
+          {/* What We Don't Believe In */}
           <AnimatedSection delay={100} animation="slide-right">
             <Card variant="default" className="h-full border-green-400/20 hover:border-green-400/40 transition-colors">
               <h3 className="text-lg font-medium mb-6 flex items-center gap-2">
@@ -32,7 +32,7 @@ export function Differentiators() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </span>
-                What we&apos;re against
+                What We Don&apos;t Believe In as a Digital Marketing Agency
               </h3>
               <ul className="space-y-4">
                 {ANTI_VALUES.map((value, index) => (
@@ -59,7 +59,7 @@ export function Differentiators() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </span>
-                What we stand for
+                What We Stand For as a Digital Marketing Agency
               </h3>
               <ul className="space-y-4">
                 {VALUES.map((value, index) => (

@@ -1,9 +1,9 @@
 export const SITE_CONFIG = {
   name: 'SEOExpert',
   tagline: 'Modern Digital Marketing Agency',
-  description: 'Results-driven digital marketing for businesses that value quality over hours. Work with a team that believes in work-life balance and delivers real results.',
-  url: 'https://seoexpert.com',
-  email: 'hello@seoexpert.com',
+  description: 'Looking for the best digital marketing agency in Singapore? SEOExpert offers affordable SEO, PPC, advertising, and social media solutions. Speak with us today.',
+  url: 'https://www.seoexpert.sg',
+  email: 'hello@seoexpert.sg',
   whatsapp: '+60123456789',
 };
 
@@ -27,6 +27,10 @@ export const NAVIGATION = [
 
 export const CTA = {
   primary: {
+    text: 'Stop guessing. Start growing.',
+    href: '/contact',
+  },
+  secondary: {
     text: 'Get a free audit',
     href: '/contact?type=audit',
   },
@@ -36,27 +40,27 @@ export const SERVICES = [
   {
     id: 'seo',
     slug: 'seo',
-    title: 'Search Engine Optimization',
+    title: 'SEO Services',
     shortTitle: 'SEO',
-    description: 'Dominate search results with data-driven SEO strategies that bring sustainable organic growth.',
+    description: 'Rank higher on Google with data-driven SEO strategies built for sustainable organic growth.',
     icon: 'search',
     features: ['Technical SEO Audits', 'On-Page Optimization', 'Link Building', 'Local SEO', 'Content Strategy'],
   },
   {
     id: 'ppc',
     slug: 'ppc',
-    title: 'PPC & Paid Advertising',
+    title: 'PPC & Paid Advertising Services',
     shortTitle: 'PPC',
-    description: 'Maximize ROI with targeted paid campaigns across Google, Meta, and beyond.',
+    description: 'Maximise ROI with targeted PPC and paid advertising across Google, Meta, and other high-intent platforms.',
     icon: 'target',
     features: ['Google Ads', 'Meta Ads', 'LinkedIn Ads', 'Retargeting', 'Landing Page Optimization'],
   },
   {
     id: 'social-media',
     slug: 'social-media',
-    title: 'Social Media Marketing',
+    title: 'Social Media Marketing Services',
     shortTitle: 'Social Media',
-    description: 'Build authentic connections and grow your brand presence across social platforms.',
+    description: 'Grow brand visibility and engagement with social media marketing designed to convert attention into results.',
     icon: 'share',
     features: ['Strategy Development', 'Content Creation', 'Community Management', 'Influencer Partnerships', 'Analytics & Reporting'],
   },
@@ -89,11 +93,11 @@ export const STATS = [
 
 export const VALUES = [
   {
-    title: 'Work-Life Balance',
+    title: 'Work-Life Balance for Better Marketing Results',
     description: 'We believe in working smart, not just hard. Burnout benefits no one.',
   },
   {
-    title: 'Remote-First',
+    title: 'Remote-First Digital Marketing Team',
     description: 'Work from anywhere. Your best work happens where you feel best.',
   },
   {
@@ -108,19 +112,19 @@ export const VALUES = [
 
 export const ANTI_VALUES = [
   {
-    title: 'Rigid corporate culture',
+    title: 'Rigid Corporate Agency Structures',
     description: 'Strict hierarchies that stifle creativity and autonomy.',
   },
   {
-    title: 'Employee monitoring software',
-    description: 'We trust our team to deliver results without surveillance.',
+    title: 'Employee Monitoring Software',
+    description: 'We trust experienced digital marketers to deliver results without surveillance.',
   },
   {
-    title: 'Overtime culture',
+    title: 'Overtime-Driven Marketing Culture',
     description: 'Sustainable work hours lead to better outcomes.',
   },
   {
-    title: 'Fake "family" culture',
+    title: 'Fake "Family" Culture',
     description: 'Professional relationships without the manipulation.',
   },
 ];

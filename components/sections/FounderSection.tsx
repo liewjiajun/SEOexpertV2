@@ -46,29 +46,24 @@ export function FounderSection() {
           {/* Content */}
           <AnimatedSection delay={200} animation="slide-left">
             <div>
-              <p className="eyebrow">Meet the Founder</p>
+              <p className="eyebrow">Meet the Founder of a Modern Digital Marketing Agency</p>
               <blockquote className="text-2xl md:text-3xl font-display text-ink mb-6 leading-snug">
-                &ldquo;I started SEOExpert because I was tired of agency culture that prioritized
-                hours over <span className="text-gradient">outcomes</span>.&rdquo;
+                &ldquo;I started SEOExpert because I was done with traditional agency bosses who equate presence with performance and do not trust people to work from <span className="text-gradient">home</span>.&rdquo;
               </blockquote>
               <p className="text-ink-secondary mb-4">
-                After years working in traditional agencies with rigid schedules and endless meetings,
-                I knew there had to be a better way. A way to deliver exceptional results while
-                actually living life.
+                I believe in a digital nomad lifestyle. Work can happen in a Bangkok café or in a quiet ryokan in Kyoto while sipping a matcha latte. Location does not define output.
               </p>
               <p className="text-ink-secondary mb-6">
-                Today, our team works from coffee shops in Bali, apartments in Lisbon, and home
-                offices around the world. We&apos;re proof that remote work doesn&apos;t just work—it works better.
+                Great SEO and digital marketing do not come from sitting in an office all day. They come from trust, focus, and the freedom to work where you do your best work.
               </p>
 
               <div className="mb-8">
                 <p className="font-semibold text-ink mb-3">Best fit clients:</p>
                 <ul className="space-y-3">
                   {[
-                    'Businesses ready to invest in sustainable growth',
-                    'Founders who value results over face-time',
-                    'Teams who prefer async communication',
-                  ].map((item, index) => (
+                    'Businesses ready to invest in sustainable digital marketing growth',
+                    'Founders looking for an experienced yet affordable digital marketing agency',
+                  ].map((item) => (
                     <li key={item} className="flex items-center gap-3 text-sm text-ink-secondary group">
                       <span className="w-5 h-5 rounded-full icon-gradient flex items-center justify-center flex-shrink-0 group-hover:shadow-glow-sm transition-shadow">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -90,7 +85,7 @@ export function FounderSection() {
                 }
                 iconPosition="right"
               >
-                Learn more about us
+                See what makes us different
               </Button>
             </div>
           </AnimatedSection>

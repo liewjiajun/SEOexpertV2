@@ -12,45 +12,39 @@ import 'swiper/css/effect-cards'
 interface Testimonial {
   name: string
   role: string
-  company: string
   quote: string
   avatar: string
 }
 
 const testimonials: Testimonial[] = [
   {
-    name: 'Sarah Chen',
+    name: 'Wei Liang Tan',
     role: 'CEO',
-    company: 'TechStart Inc.',
     quote: 'SEOExpert transformed our online presence. We saw a 300% increase in organic traffic within 6 months. Their remote team is incredibly responsive and results-driven.',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face',
-  },
-  {
-    name: 'Marcus Johnson',
-    role: 'Marketing Director',
-    company: 'GrowthLabs',
-    quote: 'The best decision we made was partnering with SEOExpert. They understand the algorithm game better than anyone. Our ad spend ROI increased by 250%.',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face',
   },
   {
-    name: 'Emily Rodriguez',
+    name: 'Mei Ling Ng',
+    role: 'Marketing Director',
+    quote: 'The best decision we made was partnering with SEOExpert. They understand the algorithm game better than anyone. Our ad spend ROI increased by 250%.',
+    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face',
+  },
+  {
+    name: 'Priya Sharma',
     role: 'Founder',
-    company: 'Digital Bloom',
     quote: 'Working with a remote team sounded risky, but SEOExpert proved it works. Clear communication, transparent reporting, and exceptional results.',
     avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face',
   },
   {
-    name: 'David Kim',
+    name: 'Kai Sheng Lim',
     role: 'COO',
-    company: 'ScaleUp Ventures',
     quote: 'Their social media strategy put us on the map. From zero to 50K followers in 3 months with genuine engagement. No bots, just real growth.',
     avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face',
   },
   {
-    name: 'Lisa Wang',
+    name: 'Hui Wen Chen',
     role: 'Head of Growth',
-    company: 'NextGen Commerce',
-    quote: 'SEOExpert delivered what agencies twice their price couldn\u0027t. Their content strategy alone drove $2M in additional revenue.',
+    quote: 'SEOExpert delivered what agencies twice their price couldn\'t. Their content strategy alone drove $2M in additional revenue.',
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=face',
   },
 ]
@@ -92,7 +86,7 @@ export function TestimonialsSwipe(): JSX.Element {
         >
           <span className="eyebrow">Testimonials</span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-white mt-4">
-            What They&apos;re <span className="text-gradient">Saying</span>
+            What Clients Say About Our <span className="text-gradient">Digital Marketing & Advertising Agency</span>
           </h2>
         </motion.div>
 
@@ -135,7 +129,7 @@ export function TestimonialsSwipe(): JSX.Element {
                           {testimonial.name}
                         </div>
                         <div className="text-sm text-white/60">
-                          {testimonial.role}, {testimonial.company}
+                          {testimonial.role}
                         </div>
                       </div>
                     </div>

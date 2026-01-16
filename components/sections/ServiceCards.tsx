@@ -35,6 +35,9 @@ const iconMap: Record<string, React.ReactNode> = {
 }
 
 export function ServiceCards() {
+  // Show only the first 3 services (SEO, PPC, Social Media)
+  const displayedServices = SERVICES.slice(0, 3)
+
   return (
     <section className="section relative overflow-hidden bg-ink-900 py-24">
       {/* Background gradient orbs */}
@@ -45,10 +48,10 @@ export function ServiceCards() {
         <AnimatedSection className="section-header text-center mb-16">
           <span className="eyebrow">Our Services</span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-white mt-4 mb-4">
-            Full-stack <span className="text-gradient">digital marketing</span>
+            Full-Stack Digital Marketing Services from <span className="text-gradient">One Agency</span>
           </h2>
           <p className="text-white/60 max-w-2xl mx-auto">
-            From strategy to execution, we handle every aspect of your digital presence.
+            From strategy to execution, we handle your digital marketing and advertising in one place.
           </p>
         </AnimatedSection>
 
@@ -59,7 +62,7 @@ export function ServiceCards() {
           transition={{ duration: 0.5 }}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {SERVICES.map((service, index) => (
+          {displayedServices.map((service, index) => (
             <ServiceCardInteractive
               key={service.id}
               title={service.shortTitle}

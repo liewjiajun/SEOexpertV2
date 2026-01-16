@@ -109,6 +109,22 @@ A modern, multi-page Next.js website for SEOExpert digital marketing agency. The
 - `glass` - Glassmorphism with backdrop blur
 - `gradient-border` - Gradient border effect
 
+## Text Alignment Patterns
+
+### Grid Item Alignment
+When displaying multiple items in a grid where titles/descriptions vary in length:
+- Use CSS Grid (`grid-cols-*`) instead of flexbox for row alignment
+- Add `md:min-h-[56px]` (or appropriate value) to title elements
+- Use `flex items-center justify-center` to vertically center shorter titles
+- Only apply min-height on desktop (`md:min-h-[56px]`) to allow natural flow on mobile
+
+### Card Grid Alignment
+For card grids with varying content:
+- Use `h-full` on cards for equal heights in a row
+- Use `flex flex-col` inside cards
+- Apply `flex-grow` to description/content area
+- Push CTAs to bottom with `mt-auto`
+
 ## Commands
 - `npm run dev` - Start development server (localhost:3000)
 - `npm run build` - Build for production

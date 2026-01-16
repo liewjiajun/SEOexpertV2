@@ -133,7 +133,7 @@ export default function AboutPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-medium mb-2">{value.title}</h3>
+                      <h3 className="text-lg font-medium mb-2 md:min-h-[56px] flex items-center">{value.title}</h3>
                       <p className="text-ink-secondary">{value.description}</p>
                     </div>
                   </div>

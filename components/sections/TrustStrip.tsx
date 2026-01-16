@@ -49,14 +49,14 @@ export function TrustStrip() {
           </h2>
         </AnimatedSection>
 
-        <div className="flex flex-col md:flex-row items-start justify-center gap-8 md:gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16 max-w-5xl mx-auto">
           {credibilityPoints.map((point, index) => (
             <AnimatedSection key={point.title} delay={index * 100} animation="pop-in">
-              <div className="flex flex-col items-center text-center max-w-xs group">
+              <div className="flex flex-col items-center text-center group">
                 <div className="w-12 h-12 rounded-xl icon-gradient flex items-center justify-center group-hover:shadow-glow-sm transition-shadow duration-300 mb-4">
                   {point.icon}
                 </div>
-                <p className="font-semibold text-ink group-hover:text-violet-600 transition-colors mb-2">{point.title}</p>
+                <p className="font-semibold text-ink group-hover:text-violet-600 transition-colors mb-2 md:min-h-[56px] flex items-center justify-center text-center">{point.title}</p>
                 <p className="text-sm text-muted">{point.description}</p>
               </div>
             </AnimatedSection>
